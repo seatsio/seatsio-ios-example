@@ -114,7 +114,7 @@
 			);
 			mainGroup = 9E6C6D9B2D2C083E00A83113;
 			packageReferences = (
-				9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference */,
+				9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */,
 			);
 			productRefGroup = 9E6C6DA52D2C083E00A83113 /* Products */;
 			projectDirPath = "";
@@ -275,7 +275,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"seatsio-ios-example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5WGUCAYKLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -304,7 +304,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"seatsio-ios-example/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 5WGUCAYKLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -350,7 +350,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference */ = {
+		9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../seatsio-ios";
 		};
@@ -359,7 +359,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		9EB58A302D2C1579001652D2 /* Seatsio */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference */;
+			package = 9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */;
 			productName = Seatsio;
 		};
 /* End XCSwiftPackageProductDependency section */
