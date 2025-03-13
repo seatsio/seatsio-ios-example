@@ -9,11 +9,12 @@ import SwiftUI
 import Seatsio
 
 struct WebView: UIViewRepresentable {
-    
+
     func makeUIView(context: Context) -> SeatsioWebView {
         let config: SeatingChartConfig = SeatingChartConfig()
             .workspaceKey("publicDemoKey")
             .event("smallTheatreWithGAEvent")
+            .session("start")
             .pricing([
                 Pricing(category: "1", price: 1)
             ])
@@ -31,14 +32,20 @@ struct WebView: UIViewRepresentable {
                 chart.isObjectInChannel("K-3", "NO_CHANNEL", { (result) in print("Is object in channel NO_CHANNEL? " + String(result)) })
             })
             .categoryFilter(CategoryFilter(enabled: true))
-        
+            .onHoldCallsInProgress({ () in
+                print("hold calls in progress")
+            })
+            .onHoldCallsComplete({ () in
+                print("hold calls complete")
+            })
+
         return SeatsioWebView(
             frame: UIScreen.main.bounds,
             region: "eu",
             seatsioConfig: config
         )
     }
-    
+
     func updateUIView(_ uiView: SeatsioWebView, context: Context) {
     }
 }
