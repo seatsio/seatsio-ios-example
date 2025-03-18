@@ -15,9 +15,6 @@ struct WebView: UIViewRepresentable {
             .workspaceKey("publicDemoKey")
             .event("smallTheatreWithGAEvent")
             .session("start")
-            .pricing([
-                Pricing(category: "1", price: 1)
-            ])
             .onObjectSelected({ (object, ticketType) in
                 print(object, ticketType ?? "nil")
             })
@@ -37,6 +34,23 @@ struct WebView: UIViewRepresentable {
             })
             .onHoldCallsComplete({ () in
                 print("hold calls complete")
+            })
+            .onPlacesPrompt({ (params, callback) in
+                print("onPlacesPrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder 3
+                callback(3)
+            })
+            .onTicketTypePrompt({ (params, callback) in
+                print("onTicketTypePrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder "adult"
+                callback("adult")
+            })
+            .onPlacesWithTicketTypesPrompt({ (params, callback) in
+                print("onPlacesWithTicketTypesPrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder choice
+                var choice = [String: Int]()
+                choice["adult"] = 2
+                callback(choice)
             })
 
         return SeatsioWebView(
