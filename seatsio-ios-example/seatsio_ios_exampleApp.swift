@@ -11,7 +11,11 @@ import SwiftUI
 struct seatsio_ios_exampleApp: App {
     var body: some Scene {
         WindowGroup {
+            Text("Basic configuration").font(.headline)
             ContentView()
+            Spacer()
+            Text("Prompts API").font(.headline)
+            ContentViewWithPromptsAPI()
         }
     }
 }

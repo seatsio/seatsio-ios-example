@@ -8,7 +8,7 @@
 import SwiftUI
 import Seatsio
 
-struct BasicWebView: UIViewRepresentable {
+struct WebViewWithPromptsAPI: UIViewRepresentable {
 
     func makeUIView(context: Context) -> SeatsioWebView {
         let config: SeatingChartConfig = SeatingChartConfig()
@@ -44,7 +44,7 @@ struct BasicWebView: UIViewRepresentable {
             .onObjectDeselected({ (object, ticketType) in
                 print(object, ticketType ?? "nil")
             })
-            .selectedObjects([SelectedObject("VIP SEATS-A-7")])
+            .selectedObjects([SelectedObject("VIP SEATS-A-1")])
             .onChartRendered({ (chart) in
                 print("rendered")
                 chart.getReportBySelectability({ (report) in print(report)})
@@ -58,6 +58,24 @@ struct BasicWebView: UIViewRepresentable {
             .onHoldCallsComplete({ () in
                 print("hold calls complete")
             })
+            .onPlacesPrompt({ (params, callback) in
+                print("onPlacesPrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder 3
+                callback(3)
+            })
+            .onTicketTypePrompt({ (params, callback) in
+                print("onTicketTypePrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder "adult"
+                callback("Adult")
+            })
+            .onPlacesWithTicketTypesPrompt({ (params, callback) in
+                print("onPlacesWithTicketTypesPrompt \(params)")
+                // use a dialog here to get the correct value instead of the placeholder choice
+                var choice = [String: Int]()
+                choice["Adult"] = 2
+                callback(choice)
+            })
+
 
         let extractedExpr: SeatsioWebView = SeatsioWebView(
             frame: UIScreen.main.bounds,
@@ -72,12 +90,12 @@ struct BasicWebView: UIViewRepresentable {
     }
 }
 
-struct ContentView: View {
+struct ContentViewWithPromptsAPI: View {
     var body: some View {
-        BasicWebView()
+        WebViewWithPromptsAPI()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentViewWithPromptsAPI()
 }
