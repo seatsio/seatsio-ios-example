@@ -10,7 +10,10 @@
 		4EDEADF2B59F8ABA98EFF6B4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4EDEA475F0F4C1526D4FC686 /* .gitignore */; };
 		9E6C6DA82D2C083E00A83113 /* seatsio_ios_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C6DA72D2C083E00A83113 /* seatsio_ios_exampleApp.swift */; };
 		9E6C6DAA2D2C083E00A83113 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C6DA92D2C083E00A83113 /* ContentView.swift */; };
-		9EB58A312D2C1579001652D2 /* Seatsio in Frameworks */ = {isa = PBXBuildFile; productRef = 9EB58A302D2C1579001652D2 /* Seatsio */; };
+		AA598D0A2E8D56CB004FB189 /* ContentViewWithPromptsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA598D082E8D56CA004FB189 /* ContentViewWithPromptsAPI.swift */; };
+		AA5AD9302E8ACDF900D85417 /* Seatsio in Frameworks */ = {isa = PBXBuildFile; productRef = AA5AD92F2E8ACDF900D85417 /* Seatsio */; };
+		AA5AD9332E8ACF4900D85417 /* Seatsio in Frameworks */ = {isa = PBXBuildFile; productRef = AA5AD9322E8ACF4900D85417 /* Seatsio */; };
+		AA5AD9362E8AD04E00D85417 /* Seatsio in Frameworks */ = {isa = PBXBuildFile; productRef = AA5AD9352E8AD04E00D85417 /* Seatsio */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,7 @@
 		9E6C6DA42D2C083E00A83113 /* seatsio-ios-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "seatsio-ios-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E6C6DA72D2C083E00A83113 /* seatsio_ios_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seatsio_ios_exampleApp.swift; sourceTree = "<group>"; };
 		9E6C6DA92D2C083E00A83113 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA598D082E8D56CA004FB189 /* ContentViewWithPromptsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewWithPromptsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,7 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EB58A312D2C1579001652D2 /* Seatsio in Frameworks */,
+				AA5AD9362E8AD04E00D85417 /* Seatsio in Frameworks */,
+				AA5AD9302E8ACDF900D85417 /* Seatsio in Frameworks */,
+				AA5AD9332E8ACF4900D85417 /* Seatsio in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +59,7 @@
 		9E6C6DA62D2C083E00A83113 /* seatsio-ios-example */ = {
 			isa = PBXGroup;
 			children = (
+				AA598D082E8D56CA004FB189 /* ContentViewWithPromptsAPI.swift */,
 				9E6C6DA72D2C083E00A83113 /* seatsio_ios_exampleApp.swift */,
 				9E6C6DA92D2C083E00A83113 /* ContentView.swift */,
 			);
@@ -83,7 +90,9 @@
 			);
 			name = "seatsio-ios-example";
 			packageProductDependencies = (
-				9EB58A302D2C1579001652D2 /* Seatsio */,
+				AA5AD92F2E8ACDF900D85417 /* Seatsio */,
+				AA5AD9322E8ACF4900D85417 /* Seatsio */,
+				AA5AD9352E8AD04E00D85417 /* Seatsio */,
 			);
 			productName = "seatsio-ios-example";
 			productReference = 9E6C6DA42D2C083E00A83113 /* seatsio-ios-example.app */;
@@ -114,7 +123,7 @@
 			);
 			mainGroup = 9E6C6D9B2D2C083E00A83113;
 			packageReferences = (
-				9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */,
+				AA5AD9342E8AD04E00D85417 /* XCLocalSwiftPackageReference "../seatsio-ios" */,
 			);
 			productRefGroup = 9E6C6DA52D2C083E00A83113 /* Products */;
 			projectDirPath = "";
@@ -142,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E6C6DAA2D2C083E00A83113 /* ContentView.swift in Sources */,
+				AA598D0A2E8D56CB004FB189 /* ContentViewWithPromptsAPI.swift in Sources */,
 				9E6C6DA82D2C083E00A83113 /* seatsio_ios_exampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,16 +360,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */ = {
+		AA5AD9342E8AD04E00D85417 /* XCLocalSwiftPackageReference "../seatsio-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../seatsio-ios";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9EB58A302D2C1579001652D2 /* Seatsio */ = {
+		AA5AD92F2E8ACDF900D85417 /* Seatsio */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9E6C6DB52D2C086600A83113 /* XCLocalSwiftPackageReference "../seatsio-ios" */;
+			productName = Seatsio;
+		};
+		AA5AD9322E8ACF4900D85417 /* Seatsio */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Seatsio;
+		};
+		AA5AD9352E8AD04E00D85417 /* Seatsio */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = Seatsio;
 		};
 /* End XCSwiftPackageProductDependency section */
