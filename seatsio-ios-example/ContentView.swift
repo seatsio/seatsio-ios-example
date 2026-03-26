@@ -8,7 +8,13 @@
 import SwiftUI
 import Seatsio
 
+class ChartHolder: ObservableObject {
+    var chart: SeatingChart?
+}
+
 struct BasicWebView: UIViewRepresentable {
+
+    let chartHolder: ChartHolder
 
     func makeUIView(context: Context) -> SeatsioWebView {
         let config: SeatingChartConfig = SeatingChartConfig()
@@ -45,11 +51,18 @@ struct BasicWebView: UIViewRepresentable {
                 print(object, ticketType ?? "nil")
             })
             .selectedObjects([SelectedObject("VIP SEATS-A-7")])
-            .onChartRendered({ (chart) in
+            .onChartRendered({ [chartHolder] (chart) in
                 print("rendered")
+                chartHolder.chart = chart
                 chart.getReportBySelectability({ (report) in print(report)})
                 chart.changeConfig(ConfigChange(unavailableCategories: ["Balcony"]))
                 chart.isObjectInChannel("K-3", "NO_CHANNEL", { (result) in print("Is object in channel NO_CHANNEL? " + String(result)) })
+            })
+            .onBestAvailableHeld({ (objects, nextToEachOther) in
+                print("Best available held", objects, "nextToEachOther=\(String(describing: nextToEachOther))")
+            })
+            .onBestAvailableHoldFailed({ (message) in
+                print("Best available hold failed:", message)
             })
             .categoryFilter(CategoryFilter(enabled: true))
             .onHoldCallsInProgress({ () in
@@ -73,8 +86,16 @@ struct BasicWebView: UIViewRepresentable {
 }
 
 struct ContentView: View {
+    @StateObject private var chartHolder = ChartHolder()
+
     var body: some View {
-        BasicWebView()
+        VStack {
+            Button("Hold best available") {
+                chartHolder.chart?.holdBestAvailable(BestAvailableForHolding(number: 2))
+            }
+            .padding()
+            BasicWebView(chartHolder: chartHolder)
+        }
     }
 }
 
