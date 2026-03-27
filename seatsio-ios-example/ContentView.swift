@@ -58,12 +58,6 @@ struct BasicWebView: UIViewRepresentable {
                 chart.changeConfig(ConfigChange(unavailableCategories: ["Balcony"]))
                 chart.isObjectInChannel("K-3", "NO_CHANNEL", { (result) in print("Is object in channel NO_CHANNEL? " + String(result)) })
             })
-            .onBestAvailableHeld({ (objects, nextToEachOther) in
-                print("Best available held", objects, "nextToEachOther=\(String(describing: nextToEachOther))")
-            })
-            .onBestAvailableHoldFailed({ (message) in
-                print("Best available hold failed:", message)
-            })
             .categoryFilter(CategoryFilter(enabled: true))
             .onHoldCallsInProgress({ () in
                 print("hold calls in progress")
@@ -91,7 +85,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Hold best available") {
-                chartHolder.chart?.holdBestAvailable(BestAvailableForHolding(number: 2))
+                chartHolder.chart?.holdBestAvailable(BestAvailableForHolding(number: 2), { result in
+                    print("Best available held", result.objects.map { $0.label }, "nextToEachOther=\(String(describing: result.nextToEachOther))")
+                })
             }
             .padding()
             BasicWebView(chartHolder: chartHolder)
